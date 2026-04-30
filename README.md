@@ -88,13 +88,9 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 
 * DTP_STP_EtherChannel_Lab_Week3.pkt
 
----
 
-## Next
 
-* Inter-VLAN Routing
-* Router-on-a-Stick
-* Layer 3 Switching
+
 
 ---
 
