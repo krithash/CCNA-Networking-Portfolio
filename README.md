@@ -1,3 +1,7 @@
+Here you go — **exact same format, updated with Week 3 added** (ready to copy-paste) 👇
+
+---
+
 # CCNA Cisco Packet Tracer Labs
 
 Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of networking concepts.
@@ -56,11 +60,41 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 
 ---
 
-## Next
+## Week 3 – DTP, STP & EtherChannel
+
+### Topics
 
 * Dynamic Trunking Protocol (Auto / Desirable)
+* Manual trunk configuration
 * Spanning Tree Protocol (STP)
-* Root Bridge Priority
+* Root Bridge Priority configuration
+* STP port roles (Root, Designated, Alternate)
+* EtherChannel configuration using LACP
+* Link aggregation between switches
+
+### Key Learnings
+
+* DTP automates trunk formation between switches
+* STP prevents loops in redundant Layer 2 networks
+* Root bridge determines the path for traffic flow
+* Non-root switches block redundant links to avoid loops
+* EtherChannel bundles multiple links into one logical link
+* LACP ensures dynamic and reliable link aggregation
+* EtherChannel removes STP blocking on bundled links and improves bandwidth utilization
+
+---
+
+## Files
+
+* DTP_STP_EtherChannel_Lab_Week3.pkt
+
+---
+
+## Next
+
+* Inter-VLAN Routing
+* Router-on-a-Stick
+* Layer 3 Switching
 
 ---
 
