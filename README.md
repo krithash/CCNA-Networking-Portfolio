@@ -1,7 +1,3 @@
-Here you go — **exact same format, updated with Week 3 added** (ready to copy-paste) 👇
-
----
-
 # CCNA Cisco Packet Tracer Labs
 
 Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of networking concepts.
@@ -88,9 +84,40 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 
 * DTP_STP_EtherChannel_Lab_Week3.pkt
 
+---
 
+## Week 4 – Routing Protocols
 
+### Topics
 
+* Static Routing
+* RIP Configuration
+* OSPF Configuration
+* EIGRP Configuration
+* Serial WAN connections between routers
+* Route verification using routing tables
+* End-to-end connectivity testing
+
+### Key Learnings
+
+* Static routing manually defines packet forwarding paths
+* RIP dynamically shares routes using hop count metric
+* OSPF uses areas and wildcard masks for efficient routing
+* EIGRP provides fast convergence and advanced route selection
+* Routing tables help verify learned and connected networks
+* Different routing protocols are identified using:
+
+  * S → Static
+  * R → RIP
+  * O → OSPF
+  * D → EIGRP
+* Successful ping responses confirm inter-network communication
+
+---
+
+## Files
+
+* Static_Dynamic_Routing.pkt
 
 ---
 
