@@ -145,6 +145,28 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 
 ---
 
+## Week 6 – NAT, PAT, ACL & Port Security
+
+### Topics
+- Dynamic NAT using Public IP Pool
+- PAT (NAT Overload) using Public IP Pool
+- Access Control Lists (ACLs)
+- Switch Port Security
+- NAT Translation Verification
+- End-to-End Connectivity Testing
+
+### Key Learnings
+- Dynamic NAT provides one-to-one translation using a pool of public IP addresses
+- PAT (NAT Overload) allows multiple hosts to share public IP addresses through port/identifier translation
+- ACLs can be used to identify traffic that should be translated
+- NAT translation tables help visualize address translation processes
+- Port Security enhances access-layer security by limiting device access on switch ports
+- Sticky MAC addresses allow switches to dynamically learn and secure connected devices
+- Verification commands are essential for validating NAT and security configurations
+
+### Files
+- NAT_PortSecurity.pkt
+
 ## Files
 
 * DHCP_NTP.pkt
