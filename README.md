@@ -14,49 +14,59 @@ CCNA_Cisco_Packet_Tracer
 │   ├── VTP.pkt
 │   ├── DTP_STP_EtherChannel.pkt
 │   ├── DHCP_NTP.pkt
-│   └── Static_Dynamic_Routing.pkt
+│   ├── Static_Dynamic_Routing.pkt
+│   ├── NAT_PortSecurity.pkt
 │
 └── README.md
 ```
 
 ## Technologies & Concepts Covered
 
-- Network Topologies
-- Basic Device Configuration
-- VLANs
-- VTP (VLAN Trunking Protocol)
-- DTP (Dynamic Trunking Protocol)
-- STP (Spanning Tree Protocol)
-- EtherChannel
-- Static Routing
-- Dynamic Routing
-- DHCP
-- NTP
-- Telnet
-- SSH
-- Switch Management
-- Router Configuration
-- Network Troubleshooting
+* Network Topologies
+* Basic Device Configuration
+* VLANs
+* VTP (VLAN Trunking Protocol)
+* DTP (Dynamic Trunking Protocol)
+* STP (Spanning Tree Protocol)
+* EtherChannel
+* Static Routing
+* Dynamic Routing
+* DHCP
+* NTP
+* Dynamic NAT
+* PAT (NAT Overload)
+* Access Control Lists (ACLs)
+* Port Security
+* Telnet
+* SSH
+* Switch Management
+* Router Configuration
+* Network Troubleshooting
 
 ## Tools Used
 
-- Cisco Packet Tracer
-- Cisco IOS Command Line Interface (CLI)
+* Cisco Packet Tracer
+* Cisco IOS Command Line Interface (CLI)
 
 ## Learning Outcomes
 
 Through these labs, I gained practical experience in:
 
-- Configuring and managing network devices
-- Implementing Layer 2 switching technologies
-- Deploying Layer 3 routing solutions
-- Configuring essential network services
-- Troubleshooting connectivity issues
-- Applying CCNA networking concepts in simulated environments
+* Configuring and managing network devices
+* Implementing Layer 2 switching technologies
+* Deploying Layer 3 routing solutions
+* Configuring essential network services
+* Implementing Dynamic NAT and PAT for address translation
+* Configuring ACLs for traffic identification and control
+* Securing switch ports using Port Security and Sticky MAC addresses
+* Verifying NAT translations and network security configurations
+* Troubleshooting connectivity issues
+* Applying CCNA networking concepts in simulated environments
 
 ## About
 
 This repository serves as a record of my networking practice and continuous learning in computer networks and Cisco technologies.
 
 ---
+
 **Author:** Krithash V
