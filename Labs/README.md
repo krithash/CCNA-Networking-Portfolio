@@ -145,6 +145,11 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 
 ---
 
+## Files
+
+* DHCP_NTP.pkt
+
+  
 ## Week 6 – NAT, PAT, ACL & Port Security
 
 ### Topics
@@ -167,8 +172,6 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 ### Files
 - NAT_PortSecurity.pkt
 
-## Files
 
-* DHCP_NTP.pkt
 
 This repository will be updated as I progress through my CCNA journey.
