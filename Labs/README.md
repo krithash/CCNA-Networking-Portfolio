@@ -19,9 +19,7 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 * Switch forwarding using MAC address tables
 * Difference between Telnet (insecure) and SSH (secure)
 
----
-
-## Files
+### Files
 
 * Switching_Topologies_Basic_Connectivity_Week1.pkt
 * Telnet_SSH_Switch_Config_Week1.pkt
@@ -48,9 +46,7 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 * Transparent mode forwards VTP advertisements while maintaining local VLAN control
 * Trunk links are essential for VTP communication
 
----
-
-## Files
+### Files
 
 * VTP.pkt
 
@@ -78,9 +74,7 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 * LACP ensures dynamic and reliable link aggregation
 * EtherChannel removes STP blocking on bundled links and improves bandwidth utilization
 
----
-
-## Files
+### Files
 
 * DTP_STP_EtherChannel_Lab_Week3.pkt
 
@@ -113,9 +107,7 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
   * D → EIGRP
 * Successful ping responses confirm inter-network communication
 
----
-
-## Files
+### Files
 
 * Static_Dynamic_Routing.pkt
 
@@ -143,35 +135,37 @@ Hands-on CCNA labs using Cisco Packet Tracer to build practical understanding of
 * WAN links enable communication between multiple LAN networks
 * Connectivity can be verified using ping and routing tables
 
----
-
-## Files
+### Files
 
 * DHCP_NTP.pkt
 
-  
+---
+
 ## Week 6 – NAT, PAT, ACL & Port Security
 
 ### Topics
-- Dynamic NAT using Public IP Pool
-- PAT (NAT Overload) using Public IP Pool
-- Access Control Lists (ACLs)
-- Switch Port Security
-- NAT Translation Verification
-- End-to-End Connectivity Testing
+
+* Dynamic NAT using a Public IP Pool
+* PAT (NAT Overload) using a Public IP Pool
+* Access Control Lists (ACLs)
+* Switch Port Security
+* NAT Translation Verification
+* End-to-End Connectivity Testing
 
 ### Key Learnings
-- Dynamic NAT provides one-to-one translation using a pool of public IP addresses
-- PAT (NAT Overload) allows multiple hosts to share public IP addresses through port/identifier translation
-- ACLs can be used to identify traffic that should be translated
-- NAT translation tables help visualize address translation processes
-- Port Security enhances access-layer security by limiting device access on switch ports
-- Sticky MAC addresses allow switches to dynamically learn and secure connected devices
-- Verification commands are essential for validating NAT and security configurations
+
+* Dynamic NAT provides one-to-one translation using a pool of public IP addresses
+* PAT (NAT Overload) allows multiple hosts to share public IP addresses through port/identifier translation
+* ACLs can be used to identify traffic that should be translated
+* NAT translation tables help visualize address translation processes
+* Port Security enhances access-layer security by limiting device access on switch ports
+* Sticky MAC addresses allow switches to dynamically learn and secure connected devices
+* Verification commands are essential for validating NAT and security configurations
 
 ### Files
-- NAT_PortSecurity.pkt
 
+* NAT_PortSecurity.pkt
 
+---
 
-This repository will be updated as I progress through my CCNA journey.
+This repository will continue to grow as I explore more advanced CCNA concepts and real-world networking scenarios.
