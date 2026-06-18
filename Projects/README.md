@@ -177,6 +177,7 @@ NexaTech Solutions is a simulated enterprise network designed to reflect real-wo
 | Hostname | IP |
 |---|---|
 | www.nexatech.com | 192.168.100.20 |
+| intranet.nexatech.com | 192.168.100.20 |
 | ftp.nexatech.com | 192.168.100.20 |
 | mail.nexatech.com | 192.168.100.30 |
 
