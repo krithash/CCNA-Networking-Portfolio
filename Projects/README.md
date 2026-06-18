@@ -280,7 +280,7 @@ Internet traffic from branch users is routed through HQ using OSPF and exits thr
 | Inter-VLAN routing | Cross-VLAN ping | ✅ Pass |
 | DHCP assignment | Desktop → IP Config → DHCP | ✅ Pass (HQ VLANs and Branch Routers) |
 | DNS resolution | Browser → www.nexatech.com | ✅ Pass |
-| Intranet web access | Browser → http://www.nexatech.com | ✅ Pass |
+| Intranet web access | Browser → http://intranet.nexatech.com | ✅ Pass |
 | FTP upload | PC → ftp ftp.nexatech.com → put file | ✅ Pass |
 | Email send/receive | HR1 → compose → Finance1 | ✅ Pass |
 | Branch ↔ HQ ping | Branch1 PC → HR PC | ✅ Pass (OSPF) |
