@@ -4,25 +4,45 @@
 > A fully simulated enterprise-grade Zero Trust network built in Cisco Packet Tracer, demonstrating multi-zone segmentation, dynamic routing, gateway redundancy, layered access control, and centralized monitoring — designed to mirror real-world security architecture principles.
 
 Table of Contents
+
 ## Project Overview
+
 ## Network Topology
+
 ## Network Architecture
+
 ## IP Addressing Plan
+
 ## VLAN & Zone Design
+
 ## Zero Trust Security Architecture
+
 ## Features Implemented
+
 ## Security Implementation
+
 ## ACL Trust Matrix
+
 ## High Availability & Redundancy
+
 ## Routing & Internet Access
+
 ## Monitoring & Management
+
 ## Test Results
+
 ## Design Decisions
+
 ## Tools Used
+
 ## Packet Tracer Limitations
+
 ## Future Improvements
+
 ## Key Learning Outcomes
+
 ## Conclusion
+
 ## Project Overview
 
 This project simulates an enterprise Zero Trust network segmented into four security zones — Management, Server Farm, Employee LAN, and DMZ — each isolated at Layer 2 and Layer 3 with explicit, policy-driven inter-zone communication rules. No device, user, or zone is trusted by default. Every inter-zone flow is governed by ACL policy, management access requires SSH v2 and AAA authentication, end devices are bound to ports via Port Security, and all activity is forwarded to a centralized Syslog server.
