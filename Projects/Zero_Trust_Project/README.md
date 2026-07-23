@@ -1,29 +1,29 @@
-Zero Trust Enterprise Network Architecture
-Cisco Packet Tracer | Multi-Layer Switching | OSPF | HSRP | ACL | NAT | SSH | AAA | Syslog | NTP
+# Zero Trust Enterprise Network Architecture
+### Cisco Packet Tracer | Multi-Layer Switching | OSPF | HSRP | ACL | NAT | SSH | AAA | Syslog | NTP
 
-A fully simulated enterprise-grade Zero Trust network built in Cisco Packet Tracer, demonstrating multi-zone segmentation, dynamic routing, gateway redundancy, layered access control, and centralized monitoring — designed to mirror real-world security architecture principles.
+> A fully simulated enterprise-grade Zero Trust network built in Cisco Packet Tracer, demonstrating multi-zone segmentation, dynamic routing, gateway redundancy, layered access control, and centralized monitoring — designed to mirror real-world security architecture principles.
 
 Table of Contents
-Project Overview
-Network Topology
-Network Architecture
-IP Addressing Plan
-VLAN & Zone Design
-Zero Trust Security Architecture
-Features Implemented
-Security Implementation
-ACL Trust Matrix
-High Availability & Redundancy
-Routing & Internet Access
-Monitoring & Management
-Test Results
-Design Decisions
-Tools Used
-Packet Tracer Limitations
-Future Improvements
-Key Learning Outcomes
-Conclusion
-Project Overview
+## Project Overview
+## Network Topology
+## Network Architecture
+## IP Addressing Plan
+## VLAN & Zone Design
+## Zero Trust Security Architecture
+## Features Implemented
+## Security Implementation
+## ACL Trust Matrix
+## High Availability & Redundancy
+## Routing & Internet Access
+## Monitoring & Management
+## Test Results
+## Design Decisions
+## Tools Used
+## Packet Tracer Limitations
+## Future Improvements
+## Key Learning Outcomes
+## Conclusion
+## Project Overview
 
 This project simulates an enterprise Zero Trust network segmented into four security zones — Management, Server Farm, Employee LAN, and DMZ — each isolated at Layer 2 and Layer 3 with explicit, policy-driven inter-zone communication rules. No device, user, or zone is trusted by default. Every inter-zone flow is governed by ACL policy, management access requires SSH v2 and AAA authentication, end devices are bound to ports via Port Security, and all activity is forwarded to a centralized Syslog server.
 
@@ -41,7 +41,9 @@ Access Control	Named Extended ACLs applied inbound on VLAN SVIs
 Management Security	SSH v2, AAA Local Authentication on all devices
 Monitoring	Centralized Syslog, NTP Synchronization
 Spanning Tree	Rapid PVST+ with Root Bridge election
-Network Topology
+
+## Network Topology
+```
                         ┌──────────────┐
                         │  ISP-Router  │
                         │ 200.1.1.1/30 │
@@ -90,7 +92,9 @@ Network Topology
               ┌────┘    ┌───┘
         ISP-Router   PUBLIC-PC
         100.1.1.1    100.1.1.10
-Network Architecture
+```
+
+## Network Architecture
 Management Zone — VLAN 10 | 192.168.10.0/24
 
 Hosts the ADMIN-PC and Syslog server (192.168.10.100). Unrestricted outbound access for administrative operations; all inbound traffic from Employee and DMZ zones is explicitly denied by ACL policy, creating a fully isolated management plane.
@@ -115,7 +119,8 @@ ISP Network
 
 Simulated by ISP-Router and SW-Internet with PUBLIC-PC. ISP-Router holds static routes back to all four internal subnets via 200.1.1.2. PUBLIC-PC (100.1.1.10) validates end-to-end NAT translation.
 
-IP Addressing Plan
+
+## IP Addressing Plan
 VLAN Subnets & Gateways
 VLAN	Name	Subnet	MLS1 SVI	MLS2 SVI	HSRP Virtual GW
 10	MANAGEMENT	192.168.10.0/24	192.168.10.1	192.168.10.2	192.168.10.254
@@ -147,14 +152,16 @@ Device	Router ID
 MLS1	1.1.1.1
 MLS2	2.2.2.2
 Border-Router	3.3.3.3
-VLAN & Zone Design
+
+## VLAN & Zone Design
 VLAN	Name	Security Zone	Devices	Purpose	Trust Level
 10	MANAGEMENT	Management	ADMIN-PC, Syslog Server	Out-of-band management plane. Hosts administrative workstation and centralized logging.	Highest
 20	SERVER_FARM	Server Farm	APP-SERVER	Internal application services. Accepts controlled inbound traffic from Employee and DMZ only.	High
 30	EMPLOYEE	Employee LAN	EMP-PC1, EMP-PC2	End-user access layer. Most likely compromise vector — tightly controlled outbound permissions.	Medium
 40	DMZ	Demilitarized Zone	WEB-SERVER	Public-facing services. Isolated from internal zones. Can only communicate forward to Server Farm.	Low
 99	NATIVE_UNUSED	N/A	None	Unused native VLAN. Assigned to all trunk ports to mitigate VLAN hopping attacks.	None
-Zero Trust Security Architecture
+
+## Zero Trust Security Architecture
 Never Trust, Always Verify
 
 Every inter-zone communication is governed by an explicit ACL permit rule. No implicit trust relationships exist between zones — a device in the Employee zone cannot reach the Management zone under any circumstances, because the policy says so and the ACL enforces it unconditionally.
@@ -189,7 +196,8 @@ Layer 3	Routing security	OSPF passive interfaces on all end-user VLANs
 Layer 4+	Management encryption	SSH v2 + AAA
 Management plane	Identity	Local AAA database, privilege 15 admin account
 Visibility	Logging	Centralized Syslog + NTP
-Features Implemented
+
+## Features Implemented
 Feature	Status	Description
 VLAN Segmentation	✅ Implemented	Four security zones isolated via VLANs 10/20/30/40 with VLAN 99 as unused native.
 802.1Q Trunking	✅ Implemented	Explicit VLAN allow-lists, native VLAN 99, and dot1q encapsulation on all inter-switch links.
@@ -210,7 +218,8 @@ Syslog	✅ Implemented	Centralized logging to 192.168.10.100 at Informational le
 NTP	✅ Implemented	Border Router as stratum 3 master with cascading synchronization to all internal and ISP devices.
 ISP Simulation	✅ Implemented	ISP-Router with return static routes and PUBLIC-PC for end-to-end internet connectivity validation.
 Routed P2P Links	✅ Implemented	/30 point-to-point subnets between MLS switches and Border Router using no switchport.
-Security Implementation
+
+## Security Implementation
 Device Hardening
 
 A consistent security baseline is applied to every network device — both Multilayer Switches, all Layer 2 switches, the Border Router, and the ISP Router:
@@ -237,7 +246,8 @@ Rapid PVST+
 
 Rapid PVST+ is configured across all switches. MLS1 is elected primary root bridge for VLANs 10, 20, 30, 40, and 99 (bridge priority 24576 via root primary). MLS2 is secondary (priority 28672). Deterministic root bridge placement prevents any access switch from becoming root through default priority election.
 
-ACL Trust Matrix
+
+## ACL Trust Matrix
 
 Named extended ACLs (EMPLOYEE-ACL and DMZ-ACL) are applied inbound on VLAN 30 and VLAN 40 SVIs on both MLS1 and MLS2. Inline remark statements document the intent of every rule.
 
@@ -245,7 +255,8 @@ Management Plane Security
 
 All inbound traffic from the Employee and DMZ zones toward 192.168.10.0/24 is denied by ACL policy. The management plane is reachable only from within VLAN 10, providing an isolated administrative boundary equivalent to an out-of-band management network.
 
-ACL Trust Matrix
+
+## ACL Trust Matrix
 Policy Definition
 Source Zone	Destination Zone	Protocol	Port	Action	Policy Rationale
 Management	All	IP	Any	✅ Permit	Administrative zone requires unrestricted outbound access
@@ -262,7 +273,8 @@ ACL Application Points
 ACL Name	Applied Interface	Direction	Scope
 EMPLOYEE-ACL	VLAN 30 SVI (MLS1 & MLS2)	Inbound	All traffic originating from Employee zone
 DMZ-ACL	VLAN 40 SVI (MLS1 & MLS2)	Inbound	All traffic originating from DMZ zone
-High Availability & Redundancy
+
+## High Availability & Redundancy
 HSRP — Hot Standby Router Protocol
 
 HSRP provides default gateway redundancy for all four security zones. End devices use a virtual IP (.254) not tied to any physical interface. If the active switch fails, the standby assumes the virtual IP within seconds — with no end-device reconfiguration required.
@@ -280,7 +292,8 @@ STP Root Bridge Election
 Device	STP Role	Priority (all VLANs)
 MLS1	Primary Root	24576 (root primary macro)
 MLS2	Secondary Root	28672 (root secondary macro)
-Routing & Internet Access
+
+## Routing & Internet Access
 OSPF — Open Shortest Path First
 
 OSPF Process 1 operates across MLS1, MLS2, and the Border Router within a single Area 0. All four VLAN subnets and both /30 uplink networks are advertised. Passive interfaces on all VLAN SVIs prevent OSPF Hello packets from reaching end devices.
@@ -301,7 +314,8 @@ ISP Simulation
 
 ISP-Router holds static routes for all four internal subnets via 200.1.1.2, plus a /16 summary route (192.168.0.0/255.255.0.0). PUBLIC-PC (100.1.1.10) provides a reachable internet-side endpoint for validating end-to-end NAT translation.
 
-Monitoring & Management
+
+## Monitoring & Management
 SSH v2 + AAA
 
 All administrative access is secured through SSH v2 with AAA local database authentication and authorization. Per-session identity is tracked; shared credential risks are eliminated. Sessions terminate after 10 minutes of inactivity.
@@ -325,7 +339,8 @@ SW-Internet	100.1.1.1	5
 
 Consistent timestamps across all devices enable accurate cross-device Syslog correlation and forensic integrity.
 
-Test Results
+
+## Test Results
 Test	Method	Expected Result	Actual Result
 SSH Login — MLS1	SSH from ADMIN-PC to MLS1 SVI	Authenticated via AAA local database	✅ Pass
 SSH Login — Layer 2 Switches	SSH from ADMIN-PC to SW-MGMT	Authenticated via AAA local database	✅ Pass
@@ -350,7 +365,8 @@ DMZ-ACL — HTTP/HTTPS to Server Farm	WEB-SERVER → APP-SERVER TCP 80/443	Permi
 DMZ-ACL — Block Management	WEB-SERVER → ADMIN-PC (ping)	Denied by DMZ-ACL deny rule	✅ Pass
 Syslog Reception	Generate interface event, check Syslog server	Log entry received with msec timestamp	✅ Pass
 NTP Synchronization	show ntp status on MLS1	Clock synchronized, stratum 4	✅ Pass
-Design Decisions
+
+## Design Decisions
 Why Zero Trust?
 
 Traditional perimeter models trust devices once inside the network, offering no protection against lateral movement after a compromise. Zero Trust requires explicit policy for every inter-zone communication — the only model that contains an attacker to the zone of initial access.
@@ -399,21 +415,24 @@ Why /30 Subnets for Routed Links?
 
 A /30 provides exactly two usable addresses for a point-to-point link. Larger subnets waste address space and unnecessarily inflate broadcast domains on two-endpoint interfaces.
 
-Tools Used
+
+## Tools Used
 Tool	Version	Purpose
-Cisco Packet Tracer	8.x	Network simulation and validation
+### Cisco Packet Tracer	8.x	Network simulation and validation
 Cisco IOS (Multilayer Switch)	12.x / 15.x	Layer 2/3 switching, VLAN, OSPF, HSRP, ACL
 Cisco IOS (Router)	15.x	NAT, OSPF, NTP, routing
 Cisco 3560 Multilayer Switch	Simulated	Distribution layer with Layer 3 capabilities
 Cisco 2960 Switch	Simulated	Access layer switching
 Cisco 2911 Router	Simulated	Border Router and ISP Router
-Packet Tracer Limitations
+
+## Packet Tracer Limitations
 Limitation	Impact on This Project
 EtherChannel negotiation bug on 3560 model	LACP EtherChannel between MLS1 and MLS2 was designed (Gi0/2–Gi0/3) but could not be implemented due to a Packet Tracer 3560 simulation bug. In production, channel-group 1 mode active on both switches aggregates both links into Port-Channel 1, verified with show etherchannel summary.
 Stateless ACL simulation	Packet Tracer does not fully honour the established keyword. A production implementation would use a stateful firewall (ASA/Palo Alto) to enforce server-to-client session return policy.
 RSA key size	Packet Tracer limits RSA generation to an interactive prompt with a maximum of 1024 bits. Production environments use crypto key generate rsa modulus 2048.
 SNMP polling	Active SNMP polling from a simulated NMS cannot be demonstrated within Packet Tracer.
-Future Improvements
+
+## Future Improvements
 Enhancement	Description	Production Benefit
 802.1X Port Authentication	IEEE 802.1X with RADIUS for port-level identity verification	Replaces MAC-based port security with credential-based access control
 RADIUS / TACACS+	External AAA server replacing local database	Centralized identity management, per-command authorization, full accounting
@@ -423,7 +442,8 @@ Stateful Firewall (ASA)	ASA between Border Router and MLS distribution layer	Tru
 SNMP v3	SNMPv3 with AuthPriv security model on all devices	Authenticated and encrypted SNMP, eliminates community string exposure
 EtherChannel (LACP)	Bundle MLS1–MLS2 inter-switch links as Port-Channel 1	Eliminates STP blocking on redundant links, doubles inter-switch bandwidth
 Site-to-Site VPN	IPsec tunnel from Border Router to remote site or cloud	Encrypted WAN connectivity for branch office or cloud workload integration
-Key Learning Outcomes
+
+## Key Learning Outcomes
 Concept	Demonstration in This Project
 Network Segmentation	Four isolated security zones with independent Layer 2 domains and controlled Layer 3 boundaries
 VLAN Design	Zone-to-VLAN mapping, trunk configuration with explicit allow-lists, unused native VLAN hardening
@@ -439,7 +459,8 @@ Centralized Monitoring	Syslog with timestamp precision, NTP hierarchy, managemen
 Zero Trust Principles	Explicit-deny inter-zone policy, least privilege ACL design, secure management plane, assume breach monitoring
 WAN Simulation	Serial link addressing, static default route, ISP return routing
 Documentation	Physical connection tables, IP addressing plans, ACL trust matrices, design decision rationale
-Conclusion
+
+## Conclusion
 
 This project delivers a complete, multi-technology enterprise network simulation built on Zero Trust principles — from VLAN boundary definitions and SVI-applied ACLs through HSRP preemption, OSPF passive interfaces, dual inside NAT, AAA-enforced management access, and centralized Syslog monitoring. Every technology choice reflects a deliberate engineering decision with a clear security or availability rationale, and the implementation maps directly to the patterns used in production Cisco enterprise campus and branch network designs.
 
